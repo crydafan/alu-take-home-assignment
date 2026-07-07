@@ -5,7 +5,7 @@ import { readAllEvents } from "@/lib/read-events";
 import { DashboardClient } from "./_components/dashboard-client";
 
 export const metadata: Metadata = {
-  title: "Passport Analytics · Loom Collective",
+  title: "Passport Analytics - Loom Collective",
   description:
     "Engagement, conversions and revenue across the five Serpentine Knit Top passports.",
 };

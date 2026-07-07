@@ -25,7 +25,7 @@ import { RepairDialog } from "./_components/repair-dialog";
 import { product } from "./lib/mockup";
 
 export const metadata: Metadata = {
-  title: `${product.name} — ${product.brand}`,
+  title: `${product.name} - ${product.brand}`,
   description: `${product.name} in ${product.color}. ${product.description.slice(0, 120)}`,
 };
 

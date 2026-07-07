@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Product Passport prototype",
+  title: "Prototype - Loom Collective",
   description:
     "A prototype of a digital product passport for the Serpentine Knit Top, built with Next.js",
 };

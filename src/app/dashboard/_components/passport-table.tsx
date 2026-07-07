@@ -34,8 +34,7 @@ export function PassportTable({
           Per-passport performance
         </h2>
         <p className="mt-0.5 text-xs text-muted-foreground">
-          Each row is one physical unit. Click a row to focus the dashboard on
-          it.
+          Click a row to focus the dashboard on an individual unit.
         </p>
       </div>
       <div className="overflow-x-auto">
