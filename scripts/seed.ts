@@ -5,8 +5,8 @@ import {
   PASSPORT_IDS,
   type RepairIssue,
   resolveRevenue,
-} from "../src/lib/events";
-import { EVENTS_KEY, redis } from "../src/lib/redis";
+} from "../src/lib/events.ts";
+import { EVENTS_KEY, redis } from "../src/lib/redis.ts";
 
 const DAY = 24 * 60 * 60 * 1000;
 const MINUTE = 60 * 1000;
