@@ -50,7 +50,7 @@ Then open:
 - `/product?id=<passportId>` — a passport page
 - `/dashboard` — the analytics dashboard
 
-Other scripts: `pnpm build`, `pnpm start`, `pnpm lint` (Biome), `pnpm format`.
+Other scripts: `pnpm build`, `pnpm start`, `pnpm lint` (Biome), `pnpm format`, `pnpm test` (Vitest).
 
 ## Solution summary
 
@@ -128,6 +128,20 @@ Chosen for a marketer asking "how is the passport performing?":
 - Cross-sell prices are $120 / $190 / $34 (kept consistent with what the passport page displays; revenue equals the shown price).
 - Simulated revenue values: $20 repair, $12 resale, product price for a cross-sell.
 - Section "opened" is interpreted as "scrolled into view" (the sections are always rendered, not collapsed).
+
+## Testing
+
+Unit tests (Vitest) cover the two pure modules that hold the analytics logic — the highest-value, lowest-friction things to test, since a wrong aggregation silently corrupts every dashboard number:
+
+- `src/lib/events.test.ts` — server-authoritative revenue resolution (fixed table + cross-sell lookup), the id/event/issue validators, and the passport label helpers.
+- `src/lib/analytics.test.ts` — every aggregation (`kpis`, `perPassportRows`, `revenueByAction`, `repairIssueCounts`, `sectionEngagement`, `funnel`, `viewsOverTime`, `filterByPassport`) against a small fixed event fixture with known expected outputs.
+
+```bash
+pnpm test        # run once
+pnpm test:watch  # watch mode
+```
+
+The `@` path alias is mapped in `vitest.config.ts`. These functions are deliberately pure (no Redis/React), which is what makes them trivially testable; UI and API routes are verified manually / by typecheck rather than with a component-test harness in this prototype.
 
 ## Known limitations / next steps
 
