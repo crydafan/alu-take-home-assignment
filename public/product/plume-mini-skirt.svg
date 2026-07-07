@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none" role="img" aria-label="Plume Mini Skirt">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dfe97a"/>
+      <stop offset="1" stop-color="#b6cc36"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#pg)"/>
+  <g stroke="#6f8412" stroke-width="7" fill="none" opacity="0.3" stroke-linecap="round">
+    <path d="M120 60 C 90 130, 150 200, 120 270 C 90 340, 150 410, 120 480"/>
+    <path d="M300 40 C 270 110, 330 180, 300 250 C 270 320, 330 390, 300 460"/>
+    <path d="M480 60 C 450 130, 510 200, 480 270 C 450 340, 510 410, 480 480"/>
+  </g>
+  <text x="300" y="330" fill="#3d4708" opacity="0.85" font-family="Georgia, serif" font-size="30" letter-spacing="3" font-weight="700" text-anchor="middle">Plume</text>
+  <text x="300" y="370" fill="#3d4708" opacity="0.7" font-family="Georgia, serif" font-size="22" letter-spacing="3" text-anchor="middle">Mini Skirt</text>
+</svg>

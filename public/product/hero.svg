@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" fill="none" role="img" aria-label="The Serpentine Knit Top">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7e85a"/>
+      <stop offset="1" stop-color="#a8c020"/>
+    </linearGradient>
+    <pattern id="snake" width="80" height="120" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+      <path d="M40 -20 C 10 20, 70 60, 40 100 C 10 140, 70 180, 40 220" stroke="#6f8412" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.35"/>
+      <path d="M0 -20 C -30 20, 30 60, 0 100 C -30 140, 30 180, 0 220" stroke="#8aa018" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="1200" fill="url(#snake)"/>
+  <g fill="#3d4708" opacity="0.85" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="450" y="590" font-size="46" letter-spacing="6" font-weight="700">THE SERPENTINE</text>
+    <text x="450" y="650" font-size="46" letter-spacing="6" font-weight="700">KNIT TOP</text>
+  </g>
+  <text x="450" y="700" fill="#3d4708" opacity="0.6" font-family="Georgia, serif" font-size="22" letter-spacing="10" text-anchor="middle">LOOM COLLECTIVE</text>
+</svg>
