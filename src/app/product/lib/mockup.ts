@@ -42,18 +42,21 @@ export const product: Product = {
   ],
   crossSell: [
     {
+      id: "plume-mini-skirt",
       name: "Plume Mini Skirt",
       description: "Feather-light A-line skirt in matching organic cotton.",
       price: 120,
       image: "/product/DTS_DECADENT_Debora_Spanhol_Photos_ID12467.jpg",
     },
     {
+      id: "block-heel-mule",
       name: "Block Heel Mule",
       description: "Hand-finished leather mule with a sculpted block heel.",
       price: 190,
       image: "/product/DTS_FANTASY_Fanette_Guilloud_Photos_ID7148.jpg",
     },
     {
+      id: "knitwear-care-kit",
       name: "Knitwear Care Kit",
       description: "Gentle wash, de-pilling comb and a repair thread set.",
       price: 34,

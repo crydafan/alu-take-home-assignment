@@ -4,6 +4,7 @@ import { CheckmarkCircle02Icon, WrenchIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { useState } from "react";
 
+import { useTracking } from "@/components/tracking/tracking-provider";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -17,12 +18,25 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { REPAIR_ISSUE_SLUG } from "@/lib/events";
 
 export function RepairDialog({ issues }: { issues: string[] }) {
+  const { track } = useTracking();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
   const [comment, setComment] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  function submit() {
+    const slugs = selected
+      .map((label) => REPAIR_ISSUE_SLUG[label])
+      .filter(Boolean);
+    const trimmed = comment.trim();
+    track("repair_requested", {
+      metadata: { issues: slugs, ...(trimmed ? { comment: trimmed } : {}) },
+    });
+    setSubmitted(true);
+  }
 
   function reset() {
     setSelected([]);
@@ -73,7 +87,7 @@ export function RepairDialog({ issues }: { issues: string[] }) {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setSubmitted(true);
+              submit();
             }}
           >
             <DialogHeader>

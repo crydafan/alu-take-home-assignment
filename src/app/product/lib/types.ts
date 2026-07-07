@@ -14,6 +14,7 @@ export type SupplyChainStep = {
 };
 
 export type CrossSellItem = {
+  id: string;
   name: string;
   description: string;
   price: number;
