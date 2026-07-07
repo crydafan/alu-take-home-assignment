@@ -1,65 +1,67 @@
-import Image from "next/image";
+import {
+  Analytics01Icon,
+  ArrowRight01Icon,
+  ShirtIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import Link from "next/link";
+import { PASSPORT_IDS } from "@/lib/events";
 
 export default function Home() {
+  const samplePassport = PASSPORT_IDS[0];
+
+  const links = [
+    {
+      href: `/product?id=${samplePassport}`,
+      icon: ShirtIcon,
+      title: "Digital Product Passport",
+      description:
+        "The public page a customer reaches by scanning the garment's QR code.",
+    },
+    {
+      href: "/dashboard",
+      icon: Analytics01Icon,
+      title: "Analytics dashboard",
+      description:
+        "How the five passports are performing — engagement, conversions and revenue.",
+    },
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center px-6 py-16">
+      <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+        Loom Collective
+      </p>
+      <h1 className="mt-2 font-heading text-3xl font-semibold tracking-tight text-foreground">
+        Digital Product Passport prototype
+      </h1>
+      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+        A public passport page for The Serpentine Knit Top with post-purchase
+        actions, Redis-backed event tracking, and an analytics dashboard.
+      </p>
+
+      <div className="mt-8 grid gap-3">
+        {links.map((l) => (
+          <Link
+            key={l.href}
+            href={l.href}
+            className="group flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-colors hover:bg-muted/50"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground">
+              <HugeiconsIcon icon={l.icon} size={20} />
+            </span>
+            <div className="flex-1">
+              <p className="font-medium text-foreground">{l.title}</p>
+              <p className="text-sm text-muted-foreground">{l.description}</p>
+            </div>
+            <HugeiconsIcon
+              icon={ArrowRight01Icon}
+              size={18}
+              className="text-muted-foreground transition-transform group-hover:translate-x-0.5"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          </Link>
+        ))}
+      </div>
+    </main>
   );
 }

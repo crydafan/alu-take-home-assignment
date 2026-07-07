@@ -69,6 +69,17 @@ export const CROSSSELL_REVENUE: Record<string, number> = {
   "knitwear-care-kit": 34,
 };
 
+/** Human-friendly label for a passport UUID, e.g. "Unit 001". */
+export function passportLabel(id: string): string {
+  const index = (PASSPORT_IDS as readonly string[]).indexOf(id);
+  return index >= 0 ? `Unit ${String(index + 1).padStart(3, "0")}` : "Unknown";
+}
+
+/** Short form of a passport UUID for subtitles. */
+export function passportShort(id: string): string {
+  return id.slice(0, 8);
+}
+
 export function isValidPassportId(id: unknown): id is PassportId {
   return (
     typeof id === "string" && (PASSPORT_IDS as readonly string[]).includes(id)

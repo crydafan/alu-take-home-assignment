@@ -6,6 +6,7 @@ import {
   isValidRepairIssue,
   resolveRevenue,
 } from "@/lib/events";
+import { readAllEvents } from "@/lib/read-events";
 import { EVENTS_KEY, redis } from "@/lib/redis";
 
 export async function POST(request: Request) {
@@ -72,9 +73,6 @@ export async function POST(request: Request) {
 }
 
 export async function GET() {
-  const raw = await redis.lrange<string | DppEvent>(EVENTS_KEY, 0, -1);
-  const events = raw.map((e) =>
-    typeof e === "string" ? (JSON.parse(e) as DppEvent) : e,
-  );
+  const events = await readAllEvents();
   return NextResponse.json(events);
 }
